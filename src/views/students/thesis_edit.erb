@@ -7,19 +7,19 @@
 <form id="thesis-update-form" class="col-10" action="<%= @thesis.user.url %>/thesis/update" method="post" enctype="multipart/form-data">
 
   <div class="spaced-row">
-    <h6 class="inline">Title <span class="details error">for thesis book</span></h6>
+    <h6 class="inline">Title <span class="details error">* required for thesis application</span></h6>
     <span class='char-counts'><span data-max='60' id="title-count">60</span> Characters Remaining</span>
     <input id="thesis-title-input" type="text" name="thesis[title]" value="<%= @thesis.title %>" placeholder="Thesis Title">
   </div>
 
   <div class="spaced-row">
-    <h6 class="inline">Synopsis <span class="details error">for thesis book</span></h6>
+    <h6 class="inline">Synopsis <span class="details error">* required for thesis application</span></h6>
     <span class="char-counts"><span data-max="250" id="synopsis-count">250</span> Characters Remaining</span>
     <textarea id="thesis-synopsis-input" placeholder="AKA elevator pitch" name="thesis[elevator_pitch]"><%= @thesis.elevator_pitch %></textarea>
   </div>
 
   <div class="spaced-row">
-    <h6 class="inline">Description <span class="details error">for thesis book</span></h6>
+    <h6 class="inline">Description <span class="details error">* required for thesis application</span></h6>
     <span class="char-counts"><span data-max='750' id="description-count">750</span> Characters Remaining</span>
     <div class="expanding-area">
     <pre><span></span><br></pre>
@@ -28,7 +28,16 @@
   </div>
 
   <div class="spaced-row">
-    <h6 class="inline">Tags <span class="details error">for thesis book</span></h6> <span class="char-counts">Choose <span data-max="4" id="tags-count">4</span></span>
+    <h6 class="inline">Research <span class="details error">* required for thesis application</span></h6>
+    <span class="char-counts"><span data-max='500' id="description-count">500</span> Characters Remaining</span>
+    <div class="expanding-area">
+      <pre><span></span><br></pre>
+      <textarea name="thesis[research_plan]" placeholder="Describe the research you have done or plan to do. Reference any projects that this is relevant to and describe how it is different from similar projects."><%= @thesis.research_plan %></textarea>
+    </div>
+  </div>
+
+  <div class="spaced-row">
+    <h6 class="inline">Tags</h6> <span class="char-counts">Choose <span data-max="4" id="tags-count">4</span></span>
     <select id="thesis-tags-input" name="tags[]" class="chzn-select" multiple data-placeholder="Click or start typing to find tags">
       <% @tags.each do |tag| %>
       <option value="<%= tag.id %>" <%= "selected" if @thesis.tags.include?(tag) %>><%= tag.name %></option>
@@ -37,7 +46,7 @@
   </div>
 
   <div class="spaced-row">
-    <h6>Book Image <span class="details error">for thesis book</span></h6>
+    <h6>Book Image</h6>
     <div class="highlight">
       <p class="strong">This is the image for the Thesis Book.</p>
 
@@ -62,14 +71,6 @@
     <div class="expanding-area">
       <pre><span></span><br></pre>
       <textarea name="thesis[reason]" placeholder="Why you wanted to make it (including goals, rationale), Influences (personal, courses, teachers, other projects of your own or others)"><%= @thesis.reason %></textarea>
-    </div>
-  </div>
-
-  <div class="spaced-row">
-    <h6>Research</h6>
-    <div class="expanding-area">
-      <pre><span></span><br></pre>
-      <textarea name="thesis[research_plan]" placeholder="What research did you do. Who you talked to, what you read, etc. What did you have to learn to do your project? Relevant Background info, related projects in the files, how it's different from similar projects."><%= @thesis.research_plan %></textarea>
     </div>
   </div>
 
