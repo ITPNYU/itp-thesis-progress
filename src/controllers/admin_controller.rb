@@ -77,7 +77,7 @@ class AdminApp < Sinatra::Base
     @students = User.all(
       :role => "student",
       :order => :first_name,
-      :year => ENV['CURRENT_YEAR'])
+      :year => ENV['CURRENT_YEAR'].to_i(10))
 
     erb :'admin/reviews_index'
   end
@@ -87,7 +87,7 @@ class AdminApp < Sinatra::Base
     @students = User.all(
       :role => "student",
       :order => :first_name,
-      :year => ENV['CURRENT_YEAR'])
+      :year => ENV['CURRENT_YEAR'].to_i(10))
     @student = User.first(:netid => params[:netid])
     @reviews = Review.all(:student_id => @student.id)
     erb :'admin/reviews_show'

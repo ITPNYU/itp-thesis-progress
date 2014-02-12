@@ -44,7 +44,7 @@ class Main < Sinatra::Base
 
       erb :'dashboards/student'
     elsif @current_user.faculty?
-      @sections = Section.all(year: ENV['CURRENT_YEAR'])
+      @sections = Section.all(year: ENV['CURRENT_YEAR'].to_i(10))
       erb :'dashboards/faculty'
     elsif @current_user.admin?
       # @announcement_drafts = @current_user.announcements.drafts

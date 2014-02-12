@@ -38,7 +38,7 @@ class User
     all role: "advisor"
   end
 
-  def self.students(year=ENV['CURRENT_YEAR'])
+  def self.students(year=ENV['CURRENT_YEAR'].to_i(10))
     if year.nil?
       all(role: "student")
     else
@@ -46,7 +46,7 @@ class User
     end
   end
 
-  def self.residents(year=ENV['CURRENT_YEAR'])
+  def self.residents(year=ENV['CURRENT_YEAR'].to_i(10))
     if year.nil?
       all(role: "resident")
     else
@@ -59,7 +59,7 @@ class User
   #
 
   def current_sections
-    self.sections.all(:year => ENV['CURRENT_YEAR'])
+    self.sections.all(:year => ENV['CURRENT_YEAR'].to_i(10))
   end
 
   def thesis

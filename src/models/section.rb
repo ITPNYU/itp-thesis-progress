@@ -14,7 +14,7 @@ class Section
   end
 
   def self.current_year
-    all(:year => ENV['CURRENT_YEAR'])
+    all(:year => ENV['CURRENT_YEAR'].to_i(10))
   end
 
   def students

@@ -38,7 +38,7 @@ class Announcement
   #
   # Returns a DataMapper Collection.
   def self.drafts
-    all(draft: true, active: true, order: :updated_at.desc, year: ENV['CURRENT_YEAR'])
+    all(draft: true, active: true, order: :updated_at.desc, year: ENV['CURRENT_YEAR'].to_i(10))
   end
 
   # Public: Return all active resources marked as published, sorted in reverse
@@ -46,7 +46,7 @@ class Announcement
   #
   # Returns a DataMapper Collection.
   def self.published
-    all(draft: false, active: true, order: :published_at.desc, year: ENV['CURRENT_YEAR'])
+    all(draft: false, active: true, order: :published_at.desc, year: ENV['CURRENT_YEAR'].to_i(10))
   end
 
   #############################################################################
