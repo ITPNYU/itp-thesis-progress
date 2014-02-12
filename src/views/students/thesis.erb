@@ -101,6 +101,7 @@
     </form>
 
     <% @feedback.each do |feedback| %>
+    <% if @current_user.advisor? || feedback.reviewer == @current_user %>
     <div class="feedback-item <%= feedback.thumbs_up ? "thumbs-up" : "thumbs-down" %>">
       <div class="author"><%= feedback.reviewer %></div>
       <div>
@@ -113,6 +114,7 @@
       </form>
       <% end %>
     </div>
+    <% end %>
     <% end %>
   </div>
 </div>
