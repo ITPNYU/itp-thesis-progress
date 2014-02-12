@@ -1,5 +1,5 @@
 $(function () {
-  var inputs = ['title', 'synopsis', 'description'];
+  var inputs = ['title', 'synopsis', 'description', 'research_plan'];
 
   bindCharCounts(inputs);
 

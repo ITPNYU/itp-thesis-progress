@@ -29,10 +29,10 @@
 
   <div class="spaced-row">
     <h6 class="inline">Research <span class="details error">* required for thesis application</span></h6>
-    <span class="char-counts"><span data-max='500' id="description-count">500</span> Characters Remaining</span>
+    <span class="char-counts"><span data-max='500' id="research_plan-count">500</span> Characters Remaining</span>
     <div class="expanding-area">
       <pre><span></span><br></pre>
-      <textarea name="thesis[research_plan]" placeholder="Describe the research you have done or plan to do. Reference any projects that this is relevant to and describe how it is different from similar projects."><%= @thesis.research_plan %></textarea>
+      <textarea id="thesis-research_plan-input" name="thesis[research_plan]" placeholder="Describe the research you have done or plan to do. Reference any projects that this is relevant to and describe how it is different from similar projects."><%= @thesis.research_plan %></textarea>
     </div>
   </div>
 
