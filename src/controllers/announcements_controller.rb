@@ -62,7 +62,7 @@ class AnnouncementsApp < Sinatra::Base
 
   get '/new/?' do
     require_admin
-    @sections = Section.all
+    @sections = Section.current_year
     @announcement = Announcement.new
     erb :'announcements/new'
   end
@@ -97,7 +97,7 @@ class AnnouncementsApp < Sinatra::Base
 
   get '/:id/edit' do
     require_admin
-    @sections = Section.all
+    @sections = Section.current_year
     @announcement = Announcement.get(params[:id])
     erb :'announcements/new'
   end
