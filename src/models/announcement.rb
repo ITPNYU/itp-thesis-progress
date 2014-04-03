@@ -97,7 +97,7 @@ class Announcement
       if ENV['RACK_ENV'] == 'production'
         email_addresses << "#{student.netid}@nyu.edu"
       else
-        email_addresses << "sk3453+#{student.netid}@nyu.edu"
+        email_addresses << "kw1213+#{student.netid}@nyu.edu"
       end
     end
 
@@ -105,7 +105,7 @@ class Announcement
       if ENV['RACK_ENV'] == 'production'
         email_addresses << "#{resident.netid}@nyu.edu"
       else
-        email_addresses << "sk3453+#{resident.netid}@nyu.edu"
+        email_addresses << "kw1213+#{resident.netid}@nyu.edu"
       end
     end
 

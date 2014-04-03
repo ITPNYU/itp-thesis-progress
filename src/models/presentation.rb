@@ -10,7 +10,7 @@ class Presentation
   def self.quick(netid, day_of_may, time)
     p = Presentation.new
     p.user = User.first :netid => netid
-    p.presentation_time = DateTime.parse("2013/05/" + day_of_may.to_s + " " + time)
+    p.presentation_time = DateTime.parse(ENV['CURRENT_YEAR'] + "/05/" + day_of_may.to_s + " " + time)
     p.save
   end
 end

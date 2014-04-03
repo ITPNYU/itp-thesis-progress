@@ -15,7 +15,7 @@ class BookMaker < Sinatra::Base
 
   get '/thesisbook-:year-:month-:day.csv' do
     content_type :text
-    @students = User.students.all(year: 2013, order: :preferred_last.asc)
+    @students = User.students.all(year: ENV['CURRENT_YEAR'].to_i(10), order: :preferred_last.asc)
     @theses = []
 
     @students.each do |student|
@@ -35,7 +35,7 @@ class BookMaker < Sinatra::Base
           "#{thesis.title}",
           "#{thesis.elevator_pitch.gsub(/\r\n/, '<OYEZ>')}",
           "#{thesis.description.gsub(/\r\n/, '<OYEZ>')}",
-          "http://itp-thesis.s3.amazonaws.com/2013/#{thesis.user.netid}.pdf",
+          "http://itp-thesis.s3.amazonaws.com/#{ENV['CURRENT_YEAR']}/#{thesis.user.netid}.pdf",
           "http://thesis.itp.io/#{thesis.user.netid}",
           "#{thesis.tags.map{|x| x.name}.join(";")}",
           "Dropbox:ITP_THESIS_BOOK:book_images:#{thesis.user.netid}.pdf",

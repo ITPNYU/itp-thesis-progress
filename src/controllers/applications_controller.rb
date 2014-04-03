@@ -82,7 +82,7 @@ class ApplicationSubmit < Sinatra::Base
       flash.success = "Congratulations, your thesis application has been submitted. Enjoy the rest of your Saturday."
     else
       puts DateTime.now.to_s + "  >>>>  #{@application.inspect} //// #{@user.inspect}"
-      flash.error = "There was an error saving your application. Please be sure you have filled out all fields properly and try again. If this problem persists, please contact Steve either in the Residents' Office or by email at sk3453@nyu.edu."
+      flash.error = "There was an error saving your application. Please be sure you have filled out all fields properly and try again. If this problem persists, please contact kw1213@nyu.edu."
     end
 
     erb :'applications/submit', layout: :'applications/layout'

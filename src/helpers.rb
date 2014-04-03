@@ -6,7 +6,7 @@ module Sinatra
 
       def send_email(email_subject, email_body)
         Pony.mail({
-          to: 'sk3453@nyu.edu',
+          to: 'kw1213@nyu.edu',
           from: ENV['GMAIL_ADDRESS'],
           via: :smtp,
           via_options: {
