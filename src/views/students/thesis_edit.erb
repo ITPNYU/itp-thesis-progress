@@ -7,19 +7,19 @@
 <form id="thesis-update-form" class="col-10" action="<%= @thesis.user.url %>/thesis/update" method="post" enctype="multipart/form-data">
 
   <div class="spaced-row">
-    <h6 class="inline">Title <span class="details error">* required for thesis application</span></h6>
+    <h6 class="inline">Title <span class="details error">* required for thesis book</span></h6>
     <span class='char-counts'><span data-max='60' id="title-count">60</span> Characters Remaining</span>
     <input id="thesis-title-input" type="text" name="thesis[title]" value="<%= @thesis.title %>" placeholder="Thesis Title">
   </div>
 
   <div class="spaced-row">
-    <h6 class="inline">Synopsis <span class="details error">* required for thesis application</span></h6>
+    <h6 class="inline">Synopsis <span class="details error">* required for thesis book</span></h6>
     <span class="char-counts"><span data-max="250" id="synopsis-count">250</span> Characters Remaining</span>
     <textarea id="thesis-synopsis-input" placeholder="AKA elevator pitch" name="thesis[elevator_pitch]"><%= @thesis.elevator_pitch %></textarea>
   </div>
 
   <div class="spaced-row">
-    <h6 class="inline">Description <span class="details error">* required for thesis application</span></h6>
+    <h6 class="inline">Description <span class="details error">* required for thesis book</span></h6>
     <span class="char-counts"><span data-max='750' id="description-count">750</span> Characters Remaining</span>
     <div class="expanding-area">
     <pre><span></span><br></pre>
@@ -28,7 +28,7 @@
   </div>
 
   <div class="spaced-row">
-    <h6 class="inline">Research <span class="details error">* required for thesis application</span></h6>
+    <h6 class="inline">Research <span class="details error">* required for thesis book</span></h6>
     <span class="char-counts"><span data-max='500' id="research_plan-count">500</span> Characters Remaining</span>
     <div class="expanding-area">
       <pre><span></span><br></pre>
@@ -50,9 +50,9 @@
     <div class="highlight">
       <p class="strong">This is the image for the Thesis Book.</p>
 
-      <p class="strong">PLEASE SUBMIT YOUR IMAGE AS A PDF</p>
+      <p class="strong">SUBMIT YOUR IMAGE AS A PDF</p>
 
-      <p>This image must be 10.5" x 2.25". For complete details <a href="http://thesis.itp.io/announcements/2013/70" target="_blank">click here</a></p>
+      <p>A PDF at 300dpi representing your project. The images must be 9.5" x 6.5" full bleed (meaning image edge to image edge) which includes in 1/2" trim on all sides. So be sure any type or important part of your image clears that trim as it is likely to not display and is there only for printer tolerance. Detailed instructions are forthcoming.</p>
 
       <% if @thesis.user.book_image_url.nil? || @thesis.user.book_image_url == "" %>
         <p>no image</p>
