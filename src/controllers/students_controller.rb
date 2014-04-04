@@ -109,7 +109,7 @@ class StudentsApp < Sinatra::Base
       redirect request.referrer
     end
 
-    @tags = Tag.all(order: :name.asc)
+    @tags = Tag.current_year
     @site_config = SiteConfig.first
     if @site_config.thesis_lock && !env['warden'].user.advisor?
       flash.error = "Edits to thesis summaries are currently locked for review."
@@ -147,7 +147,7 @@ class StudentsApp < Sinatra::Base
     params[:thesis][:created_at] = nil
     new_thesis = Thesis.new(old_thesis.attributes.merge(params[:thesis]))
 
-    new_thesis.tags = Tag.all(id: params[:tags])
+    new_thesis.tags = Tag.all(:year => ENV['CURRENT_YEAR'].to_i(10), id: params[:tags])
 
     if params[:image]
       image_path = "#{@user.netid}-#{Time.now.to_i}/#{URI.escape(params[:image][:filename].gsub(" ","_"))}"

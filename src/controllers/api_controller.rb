@@ -15,7 +15,7 @@ class API < Sinatra::Base
   #################################################
 
   get '/tags/?' do
-    @tags = Tag.all(order: :name.asc)
+    @tags = Tag.current_year
     @tags.to_json
   end
 

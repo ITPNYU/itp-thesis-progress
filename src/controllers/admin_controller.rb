@@ -10,7 +10,7 @@ class AdminApp < Sinatra::Base
     if @current_user.admin?
       @site_config = SiteConfig.first
 
-      @tags = Tag.all(fields: [:name, :id])
+      @tags = Tag.all(:year => ENV['CURRENT_YEAR'].to_i(10), fields: [:name, :id])
       @tag_hash = {}
 
       @tags.each do |tag|
