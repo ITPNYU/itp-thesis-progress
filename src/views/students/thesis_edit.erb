@@ -1,6 +1,11 @@
 <script src="/assets/thesis-edit.js" type="text/javascript"></script>
 
 <div class="col-10">
+<h1>Your Name</h1>
+<p>This is how your name will appear in the Thesis Book: <b><%= @user.to_s %></b></p>
+
+<p>If you wish to change the way your name will appear in the Thesis Book, <a href="/admin">set your preferred name here</a>.
+
 <h1>Your Thesis</h1>
 </div>
 
@@ -28,7 +33,7 @@
   </div>
 
   <div class="spaced-row">
-    <h6 class="inline">Research <span class="details error">* required for thesis book</span></h6>
+    <h6 class="inline">Research</h6>
     <span class="char-counts"><span data-max='500' id="research_plan-count">500</span> Characters Remaining</span>
     <div class="expanding-area">
       <pre><span></span><br></pre>
@@ -37,7 +42,7 @@
   </div>
 
   <div class="spaced-row">
-    <h6 class="inline">Tags</h6> <span class="char-counts">Choose up to <span data-max="3" id="tags-count">3</span></span>
+    <h6 class="inline">Tags <span class="details error">* required for thesis book</span></h6> <span class="char-counts">Choose up to <span data-max="3" id="tags-count">3</span></span>
     <select id="thesis-tags-input" name="tags[]" class="chzn-select" multiple data-placeholder="Click or start typing to find tags">
       <% @tags.each do |tag| %>
       <option value="<%= tag.id %>" <%= "selected" if @thesis.tags.include?(tag) %>><%= tag.name %></option>
@@ -46,7 +51,7 @@
   </div>
 
   <div class="spaced-row">
-    <h6>Book Image</h6>
+    <h6>Book Image <span class="details error">* required for thesis book</span></h6>
     <div class="highlight">
       <p class="strong">This is the image for the Thesis Book.</p>
 
