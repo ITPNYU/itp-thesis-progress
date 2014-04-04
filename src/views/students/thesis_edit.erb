@@ -37,7 +37,7 @@
   </div>
 
   <div class="spaced-row">
-    <h6 class="inline">Tags</h6> <span class="char-counts">Choose <span data-max="4" id="tags-count">4</span></span>
+    <h6 class="inline">Tags</h6> <span class="char-counts">Choose <span data-max="3" id="tags-count">up to 3</span></span>
     <select id="thesis-tags-input" name="tags[]" class="chzn-select" multiple data-placeholder="Click or start typing to find tags">
       <% @tags.each do |tag| %>
       <option value="<%= tag.id %>" <%= "selected" if @thesis.tags.include?(tag) %>><%= tag.name %></option>
